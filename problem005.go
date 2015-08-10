@@ -10,14 +10,16 @@ func main() {
 	lcm, num := 1, []int{2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20}
 
 	for i = 2; i < 20; i++ {
-		for factor := i; factor == i; {
-			for factor, j = 1, 0; j < len(num); j++ {
+		for factor := true; factor == true; {
+			for factor, j = false, 0; j < len(num); j++ {
 				if num[j]%i == 0 {
-					factor = i
+					factor = true
 					num[j] = num[j] / i
 				}
 			}
-			lcm = lcm * factor
+			if factor {
+				lcm = lcm * i
+			}
 		}
 	}
 
